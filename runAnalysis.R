@@ -6,6 +6,9 @@ download.file(
 # Extract the downloaded data
 unzip(zipfile="UCI_HAR_Dataset.zip")
 
+## Part 1. 
+## "Merges the training and the test sets to create one data set"
+
 # Read and merge data, subject and activity files
 subject <- do.call("rbind",
                 lapply(c("UCI HAR Dataset/test/subject_test.txt", 
@@ -33,5 +36,25 @@ colnames(dat) <- c("subject", "activity", features[2, ])
 
 # Clean up
 rm(subject, activity, dataset, features)
+
+## Part 2.
+## Extracts only the measurements on the mean and standard deviation for each measurement. 
+## Uses descriptive activity names to name the activities in the data set
+## Appropriately labels the data set with descriptive activity names. 
+
+# Set patterns to match column names against and select columns
+toMatch<- c("mean\\(\\)","std\\(\\)")
+datMeanSd <- subset(dat, select= grep(paste(toMatch, collapse="|"), names(dat)))
+datMeanSd <- data.frame(dat[ ,1:2], datMeanSd)
+
+#Add activity names to to dataset in place of integer keys
+actLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
+
+# Replace activity key with activity name
+datMeanSd$activity <- actLabels$V2[match(datMeanSd$activity, actLabels$V1)]
+
+# clean up
+rm(toMatch, actLabels)
+
 
 

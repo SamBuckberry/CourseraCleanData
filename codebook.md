@@ -67,4 +67,4 @@ The runAnalysis.R script:
 * Extracts the mean and standard deviation data for each variable using grep.
 * Adds descriptive activity names in place of the activity codes.
 * Calculates the mean for each mean and standard deviation variable for each activity and each subject using melt and dcast. 
-* Writes a 'tidy' dataset to a csv file named "tidySubjectMeans.csv".
+* Writes a 'tidy' dataset to a tab-seperated text file named "tidySubjectMeans.txt".

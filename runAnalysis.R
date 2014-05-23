@@ -65,7 +65,7 @@ meltData <- melt(datMeanSd, id.vars= c("subject", "activity"))
 tidySubjectMeans <- dcast(meltData, subject + activity ~ variable, mean)
 
 # write data to csv file
-write.table(x=tidySubjectMeans, file="tidySubjectMeans.csv", sep=",")
+write.table(x=tidySubjectMeans, file="tidySubjectMeans.txt", sep="\t")
 
 # clean up 
 rm(meltData)

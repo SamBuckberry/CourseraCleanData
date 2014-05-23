@@ -3,9 +3,15 @@ Codebook
 
 ### Obtaining the raw data
 
-The raw data was downloaded for this analysis are available from the link:
+The raw data were downloaded and extracted into the working directory for this analysis were downloaded using the following link and method:
+```
+# Download the data
+download.file
+(url="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile="UCI_HAR_Dataset.zip", method="curl")
 
-https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+# Extract the downloaded data
+unzip(zipfile="UCI_HAR_Dataset.zip")
+```
 
 ### The data files used
 The following files are used in the runAnalysis.R script:
@@ -62,7 +68,6 @@ Column names for data.frames dat, datMeanSd, tidySubjectMeans correspond to the 
 
 The runAnalysis.R script:
 
-* Downloads and extracts the data into the current working directory.
 * Merges the training and test datasets into one data.frame using rbind.
 * Extracts the mean and standard deviation data for each variable using grep.
 * Adds descriptive activity names in place of the activity codes.

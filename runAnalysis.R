@@ -1,13 +1,4 @@
-install.packages("reshape2")
 library(reshape2)
-
-# Download the data
-download.file(
-        url="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
-        file="UCI_HAR_Dataset.zip", method="curl")
-
-# Extract the downloaded data
-unzip(zipfile="UCI_HAR_Dataset.zip")
 
 ## Part 1. 
 ## Merges the training and the test sets to create one data set
@@ -65,7 +56,8 @@ meltData <- melt(datMeanSd, id.vars= c("subject", "activity"))
 tidySubjectMeans <- dcast(meltData, subject + activity ~ variable, mean)
 
 # write data to csv file
-write.table(x=tidySubjectMeans, file="tidySubjectMeans.txt", sep="\t")
+write.table(x=tidySubjectMeans, file="tidySubjectMeans.txt", sep="\t",
+            quote=FALSE, row.names=FALSE)
 
 # clean up 
 rm(meltData)

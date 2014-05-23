@@ -53,9 +53,6 @@ actLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
 # Replace activity key with activity name
 datMeanSd$activity <- actLabels$V2[match(datMeanSd$activity, actLabels$V1)]
 
-# Write data to csv file
-write.table(datMeanSd, file="tidyMeanSdData.csv", sep=",")
-
 # clean up
 rm(toMatch, actLabels)
 

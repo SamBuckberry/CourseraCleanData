@@ -1,17 +1,17 @@
 Readme
 ========================================================
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+This repo contains a script 'runAnalysis.R' that performs the functions for the project associated with Coursera 'Getting and Cleaning Data' course.
 
-When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+The analysis.R script will:
 
-```{r}
-summary(cars)
-```
+* Downlaod the data for the project
+* Merge the training and test datasets
+* Extract the mean and standard deviation for each variable for each subject and activity
+* Create a 'tidy' dataset with the average for each variable for each activity for each subject
+* Write a csv file withy the 'tidy' dataset.
 
-You can also embed plots, for example:
+A details of the analysis are available in the codebood.md file in this repo. The runAnalysis.R scipt also has comments detailing each operation within the script.
 
-```{r fig.width=7, fig.height=6}
-plot(cars)
-```
+
 
